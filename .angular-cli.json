@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "my-app"
+    "name": "angular-less"
   },
   "apps": [
     {
@@ -19,14 +19,9 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
-        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+        "styles.less"
       ],
-      "scripts": [
-        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
-        "../node_modules/jquery/dist/jquery.slim.min.js",
-        "../node_modules/popper.js/dist/popper.min.js"
-      ],
+      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
@@ -59,7 +54,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
+    "styleExt": "less",
     "component": {}
   }
 }
