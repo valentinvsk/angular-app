@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<div id="wrapper" class="frightened">
+  <!-- Give Alice two values to tell skrollr what CSS properties you want to interpolate during scrolling. For instance:
+data-0="top:0;" would mean "At top of the page, Alice gets a style of "top:0%;" and
+data-800="top:100%;" would mean "When scrolled 800px from top of page, Alice gets a style of "top:100%;"
+
+  Tip: Make sure your values are the same type: Even 0 has to end in the same measure, be it px, %, em. top:0 and top:80em is no good. top: 0em and top: 80em is fine.
+
+  Visit https://github.com/Prinzhorn/skrollr/ if you need more documentation
+  -->
+  <div class="alice-falling"></div>
+
+  <div class="tuna-falling"
+    data-0="top:200%;" data-1000="top:20%;" data-2000="top:20%;" data-3000="top:-150%;">
+    <img class="black-tuna"
+      src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/tuna-alice3.png"
+     />
+  </div>
+
+  <!--nothing beyond here needs editing-->
+  <div id="skrollr-body">
+    <div id="tunnel" class="frightened">
+      <div class="page" data-mood="frightened"></div>
+      <div class="page" data-mood="curious"></div>
+      <div class="page" data-mood="bored"></div>
+      <div class="page" data-mood="sleeping"></div>
+      <div class="page" data-mood="waking"></div>
+      <div class="page" data-mood="weird"></div>
+      <div class="page" data-mood="jolted"></div>
+    </div>
+  </div>
+</div>

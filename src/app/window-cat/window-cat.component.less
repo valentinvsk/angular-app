@@ -1,0 +1,40 @@
+.tail {
+  animation-name: tailWag;
+  animation-timing-function: steps(5);
+  animation-duration: .5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: paused;
+}
+
+.tail:hover {
+  animation-play-state: running;
+}
+
+.window {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/tuna-window.png") no-repeat 0 0;
+  background-size: 100% auto;
+  padding-top: 81.38%;
+}
+
+.tail {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/tuna-tails.png) 0 0 no-repeat;
+  background-size: 100% auto;
+  width: 40%;
+  padding-top: 18.63%;
+  position: absolute;
+  top: 75%;
+  left: 16%;
+}
+
+@keyframes tailWag {
+  0% {background-position: 0 0;}
+  100%{background-position: 0 125%;}
+}
+
+.stage {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%
+}

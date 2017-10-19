@@ -23,7 +23,9 @@
       ],
       "scripts": [
         "../scripts/animated-buttons.js",
-        "../scripts/animated-paw.js"
+        "../scripts/animated-paw.js",
+        "../scripts/walking-cat.js",
+        "../scripts/paralax-fall.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

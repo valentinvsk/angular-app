@@ -1,0 +1,35 @@
+#tuna {
+  background: url(http://stash.rachelnabors.com/img/codepen/tuna_sprite.png) 0 0 no-repeat;
+  height: 200px;width: 400px;
+  position: absolute;
+  bottom: 3em;
+  margin-left: -150px;
+  left: 50%;
+}
+
+.walking {
+  animation: walk-cycle 1000ms steps(12) infinite;
+}
+
+.running {
+  animation: run-cycle 700ms steps(12) infinite;
+}
+
+.sitting {
+  animation: sit-down 500ms steps(5) 1 forwards;
+}
+
+@keyframes walk-cycle {
+  0 {background-position: 0 0;}
+  100% {background-position: 0 -2391px;}
+}
+
+@keyframes run-cycle {
+  0% { background-position: -1200px 0; }
+  100% {background-position: -1200px -2391px;}
+}
+
+@keyframes sit-down {
+  0% {background-position: -400px 0;}
+  100% {background-position: -400px -1000px;}
+}

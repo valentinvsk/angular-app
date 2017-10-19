@@ -7,6 +7,9 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { CardsComponent } from './cards/cards.component';
 import { AnimatedComponent } from './animated/animated.component';
 import { PawComponent } from './paw/paw.component';
+import { WalkingCatComponent } from './walking-cat/walking-cat.component';
+import { WindowCatComponent } from './window-cat/window-cat.component';
+import { ParalaxFallComponent } from './paralax-fall/paralax-fall.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { PawComponent } from './paw/paw.component';
     CarouselComponent,
     CardsComponent,
     AnimatedComponent,
-    PawComponent
+    PawComponent,
+    WalkingCatComponent,
+    WindowCatComponent,
+    ParalaxFallComponent
   ],
   imports: [
     BrowserModule
