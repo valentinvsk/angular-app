@@ -10,6 +10,7 @@ import { PawComponent } from './paw/paw.component';
 import { WalkingCatComponent } from './walking-cat/walking-cat.component';
 import { WindowCatComponent } from './window-cat/window-cat.component';
 import { ParalaxFallComponent } from './paralax-fall/paralax-fall.component';
+import { DataTableComponent } from './data-table/data-table.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ParalaxFallComponent } from './paralax-fall/paralax-fall.component';
     PawComponent,
     WalkingCatComponent,
     WindowCatComponent,
-    ParalaxFallComponent
+    ParalaxFallComponent,
+    DataTableComponent
   ],
   imports: [
     BrowserModule

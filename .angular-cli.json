@@ -22,10 +22,7 @@
         "styles.less"
       ],
       "scripts": [
-        "../scripts/animated-buttons.js",
-        "../scripts/animated-paw.js",
-        "../scripts/walking-cat.js",
-        "../scripts/paralax-fall.js"
+        "../scripts/data-table.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
