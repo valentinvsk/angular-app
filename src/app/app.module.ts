@@ -11,6 +11,7 @@ import { WalkingCatComponent } from './walking-cat/walking-cat.component';
 import { WindowCatComponent } from './window-cat/window-cat.component';
 import { ParalaxFallComponent } from './paralax-fall/paralax-fall.component';
 import { DataTableComponent } from './data-table/data-table.component';
+import { DataTable2Component } from './data-table-2/data-table-2.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DataTableComponent } from './data-table/data-table.component';
     WalkingCatComponent,
     WindowCatComponent,
     ParalaxFallComponent,
-    DataTableComponent
+    DataTableComponent,
+    DataTable2Component
   ],
   imports: [
     BrowserModule
