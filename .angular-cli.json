@@ -23,10 +23,7 @@
         "../node_modules/datatables.net-dt/css/jquery.dataTables.css"
       ],
       "scripts": [
-        "assets/scripts/data-table.js",
-        "assets/scripts/walking-cat.js",
-        "../node_modules/jquery/dist/jquery.js",
-        "../node_modules/datatables.net/js/jquery.dataTables.js"
+        "assets/scripts/walking-cat.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
