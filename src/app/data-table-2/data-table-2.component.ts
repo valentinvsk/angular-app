@@ -9,7 +9,22 @@ export class DataTable2Component implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  dtOptions: DataTables.Settings = {};
+
+  ngOnInit(): void {
+    this.dtOptions = {
+      ajax: '../assets/ajax/array.json',
+      columns: [{
+        title: 'ID',
+        data: 'id'
+      }, {
+        title: 'First name',
+        data: 'firstName'
+      }, {
+        title: 'Last name',
+        data: 'lastName'
+      }]
+    };
   }
 
 }

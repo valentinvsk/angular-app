@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { DataTablesModule } from 'angular-datatables';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CarouselComponent } from './carousel/carousel.component';
@@ -28,7 +29,9 @@ import { DataTable2Component } from './data-table-2/data-table-2.component';
     DataTable2Component
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
