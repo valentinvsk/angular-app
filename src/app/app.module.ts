@@ -13,6 +13,8 @@ import { WindowCatComponent } from './window-cat/window-cat.component';
 import { ParalaxFallComponent } from './paralax-fall/paralax-fall.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { DataTable2Component } from './data-table-2/data-table-2.component';
+import { SmartTableComponent } from './smart-table/smart-table.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 @NgModule({
   declarations: [
@@ -26,11 +28,12 @@ import { DataTable2Component } from './data-table-2/data-table-2.component';
     WindowCatComponent,
     ParalaxFallComponent,
     DataTableComponent,
-    DataTable2Component
+    DataTable2Component,
+    SmartTableComponent
   ],
   imports: [
     BrowserModule,
-
+    Ng2SmartTableModule,
     DataTablesModule
   ],
   providers: [],

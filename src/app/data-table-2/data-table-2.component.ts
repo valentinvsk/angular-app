@@ -26,5 +26,4 @@ export class DataTable2Component implements OnInit {
       }]
     };
   }
-
 }
