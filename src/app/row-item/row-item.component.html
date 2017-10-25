@@ -1,0 +1,4 @@
+<td *ngFor="let prop of _listOfProps" [ngStyle]="rowWidthStyle">
+  <span *ngIf="inEditMode != rowItemData['id']">{{rowItemData[prop]}}</span>
+  <input [(ngModel)]="rowItemData[prop]" *ngIf="inEditMode == rowItemData['id']" (click)="$event.stopPropagation()">
+</td>

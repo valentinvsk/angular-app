@@ -1,14 +1,22 @@
 {
-  "data": [
-    [
-      "Tiger Nixon",
-      "System Architect",
-      "8"
-    ],
-    [
-      "Garrett Winters",
-      "Accountant",
-      "8"
-    ]
-    ]
+  "people": [
+    {
+      "id": 860,
+      "first_name": "Superman",
+      "last_name": "Yoda",
+      "full_name_property": "Some Full Name"
+    },
+    {
+      "id": 870,
+      "first_name": "Foo",
+      "last_name": "Whateveryournameis",
+      "full_name_property": "Some Full Name",
+      "company_name" : 4324
+    },
+    {
+      "id": 590,
+      "first_name": "Toto",
+      "full_name_property": "Some Full Name"
+    }
+  ]
 }

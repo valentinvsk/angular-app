@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DataTable2Component } from './data-table-2.component';
+import { EventButtonComponent } from './event-button.component';
 
-describe('DataTable2Component', () => {
-  let component: DataTable2Component;
-  let fixture: ComponentFixture<DataTable2Component>;
+describe('EventButtonComponent', () => {
+  let component: EventButtonComponent;
+  let fixture: ComponentFixture<EventButtonComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DataTable2Component ]
+      declarations: [ EventButtonComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DataTable2Component);
+    fixture = TestBed.createComponent(EventButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

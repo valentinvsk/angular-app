@@ -1,10 +1,23 @@
 <!DOCTYPE html>
+<div class="event-buttons-container">
+  <event-button [buttonText]="'Add'"    (eventSender)="catchEventType($event)"></event-button>
+  <event-button [buttonText]="rowInEditMode > -1 ? 'Save' : 'Edit'"   (eventSender)="catchEventType($event)"></event-button>
+  <event-button [buttonText]="'Delete'" (eventSender)="catchEventType($event)"></event-button>
+</div>
+
 <table id="example" class="display table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Position</th>
-      <th>Hours</th>
+      <th *ngFor="let columnTitle of columnTitles" [ngStyle]="columnWidthStyle" (click)="sortRowBy(columnTitle)">
+        {{columnTitle}}
+        <i class="fa fa-arrow-down" aria-hidden="true" *ngIf="sortedOrder == 'asc' && (currentSortedRule == columnTitle || currentSortedRule == '')"></i>
+        <i class="fa fa-arrow-up" aria-hidden="true" *ngIf="sortedOrder == 'desc'  && (currentSortedRule == columnTitle || currentSortedRule == '')"></i>
+      </th>
     </tr>
   </thead>
+  <tbody>
+    <tr row-item *ngFor="let row of rowsData" [rowItemData]="row" [totalNumberOfRows]="totalNumberOfRows" [inEditMode]="rowInEditMode"
+        [ngStyle]="row.selected ? {'background-color': 'red', 'color': 'white'} : {}"  (click)="toggleRowSelection(row)">
+    </tr>
+  </tbody>
 </table>

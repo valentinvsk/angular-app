@@ -21,9 +21,6 @@
       "styles": [
         "styles.less"
       ],
-      "scripts": [
-        "assets/scripts/data-table.js"
-      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
