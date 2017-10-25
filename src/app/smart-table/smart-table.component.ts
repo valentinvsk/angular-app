@@ -8,19 +8,26 @@ import { Component, OnInit } from '@angular/core';
 export class SmartTableComponent implements OnInit {
 
   settings = {
-  // ajax: '../assets/ajax/array-3.json',
   columns: {
     id: {
-      title: 'ID'
+      title:  'ID',
+      filter: false
     },
     name: {
-      title: 'Full Name'
+      title: 'Full Name',
+      filter: false
     },
     username: {
-      title: 'User Name'
+      title: 'User Name',
+      filter: false
     },
     email: {
-      title: 'Email'
+      title: 'Email',
+      filter: false
+    },
+    position: {
+      title: 'Position',
+      filter: false
     }
   }
 };
@@ -30,19 +37,22 @@ data = [
     id: 1,
     name: 'Leanne Graham',
     username: 'Bret',
-    email: 'Sincere@april.biz'
+    email: 'Sincere@april.biz',
+    position: 'Assistant'
   },
   {
     id: 2,
     name: 'Ervin Howell',
     username: 'Antonette',
-    email: 'Shanna@melissa.tv'
+    email: 'Shanna@melissa.tv',
+    position: 'Assistant'
   },
   {
     id: 11,
     name: 'Nicholas DuBuque',
     username: 'Nicholas.Stanton',
-    email: 'Rey.Padberg@rosamond.biz'
+    email: 'Rey.Padberg@rosamond.biz',
+    position: 'Assistant'
   }
 ];
 
