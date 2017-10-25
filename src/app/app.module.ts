@@ -20,6 +20,7 @@ import { DataTableComponent } from './data-table/data-table.component';
 import { EventButtonComponent } from './event-button/event-button.component';
 import { RowItemComponent } from './row-item/row-item.component';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ToastModule } from 'ng2-toastr/ng2-toastr';
     ParalaxFallComponent,
     DataTableComponent,
     EventButtonComponent,
-    RowItemComponent
+    RowItemComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

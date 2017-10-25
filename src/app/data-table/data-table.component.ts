@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TableDataService } from '../table-data.service';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { SearchPipe } from '../search.pipe';
 
 import * as _ from 'lodash';
 
@@ -18,6 +19,7 @@ export class DataTableComponent implements OnInit {
   columnWidthStyle: any = {};
   totalNumberOfRows: number = 0;
   rowInEditMode: number = -1;
+  searchedText: string = '';
 
   constructor(private _dataProvider : TableDataService) {}
 
