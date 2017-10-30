@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <div class="event-buttons-container">
-  <event-button [buttonText]="'Add'"    (eventSender)="catchEventType($event)"></event-button>
-  <event-button [buttonText]="rowInEditMode > -1 ? 'Save' : 'Edit'"   (eventSender)="catchEventType($event)"></event-button>
+  <event-button [buttonText]="'Add'" (eventSender)="catchEventType($event)"></event-button>
+  <event-button [buttonText]="rowInEditMode > -1 ? 'Save' : 'Edit'" (eventSender)="catchEventType($event)"></event-button>
   <event-button [buttonText]="'Delete'" (eventSender)="catchEventType($event)"></event-button>
 </div>
 <input class="search-input" [(ngModel)]="searchedText" placeholder="Search for data...">
 
-<table id="example" class="display table table-striped">
+<table class="display table table-striped">
   <thead>
     <tr>
       <th *ngFor="let columnTitle of columnTitles" [ngStyle]="columnWidthStyle" (click)="sortRowBy(columnTitle)">
@@ -17,8 +17,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr row-item *ngFor="let row of rowsData | search : searchedText" [rowItemData]="row" [totalNumberOfRows]="totalNumberOfRows" [inEditMode]="rowInEditMode"
+    <tr row-item *ngFor="let row of rowsData | search : searchedText" [rowItemData]="row" [optionFields]="options" [totalNumberOfRows]="totalNumberOfRows" [inEditMode]="rowInEditMode"
         [ngStyle]="row.selected ? {'background-color': 'red', 'color': 'white'} : {}"  (click)="toggleRowSelection(row)">
     </tr>
   </tbody>
 </table>
+
+<data-chart [(chartData)]="rowsData" [optionFields]="options" ></data-chart>

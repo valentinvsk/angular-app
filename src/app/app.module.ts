@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NgZone } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import * as _ from 'lodash';
 import { FormsModule } from '@angular/forms';
@@ -19,8 +18,12 @@ import { ParalaxFallComponent } from './paralax-fall/paralax-fall.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { EventButtonComponent } from './event-button/event-button.component';
 import { RowItemComponent } from './row-item/row-item.component';
-import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { SearchPipe } from './search.pipe';
+
+import { NvD3Module } from 'ng2-nvd3';
+import { DataChartComponent } from './data-chart/data-chart.component';
+import 'd3';
+import 'nvd3';
 
 @NgModule({
   declarations: [
@@ -33,17 +36,18 @@ import { SearchPipe } from './search.pipe';
     WalkingCatComponent,
     WindowCatComponent,
     ParalaxFallComponent,
+    
     DataTableComponent,
     EventButtonComponent,
     RowItemComponent,
-    SearchPipe
+    SearchPipe,
+    DataChartComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
-    BrowserAnimationsModule,
-    ToastModule.forRoot()
+    NvD3Module
   ],
   providers: [TableDataService],
   bootstrap: [AppComponent]

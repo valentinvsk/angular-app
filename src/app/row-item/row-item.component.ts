@@ -11,6 +11,8 @@ export class RowItemComponent implements OnInit {
   @Input() inEditMode : number = -1;
   @Input() rowItemData : any = {};
   @Input() totalNumberOfRows : number = 0;
+  @Input() optionFields: string[] = [];
+
   _listOfProps: string[] = [];
   rowWidthStyle: any = {};
 

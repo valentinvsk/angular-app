@@ -1,4 +1,12 @@
 <td *ngFor="let prop of _listOfProps" [ngStyle]="rowWidthStyle">
-  <span *ngIf="inEditMode != rowItemData['id']">{{rowItemData[prop]}}</span>
-  <input [(ngModel)]="rowItemData[prop]" *ngIf="inEditMode == rowItemData['id']" (click)="$event.stopPropagation()">
+  <div *ngIf="prop != 'current_position'">
+    <span *ngIf="inEditMode != rowItemData['id']">{{rowItemData[prop]}}</span>
+    <input [(ngModel)]="rowItemData[prop]" *ngIf="inEditMode == rowItemData['id']" (click)="$event.stopPropagation()">
+  </div>
+  <div *ngIf="prop == 'current_position'">
+    <span *ngIf="inEditMode != rowItemData['id']">{{rowItemData[prop]}}</span>
+    <select [(ngModel)]="rowItemData[prop]" *ngIf="inEditMode == rowItemData['id']">
+      <option *ngFor="let option of optionFields" value="{{option}}">{{option}}</option>
+    </select>
+  </div>
 </td>

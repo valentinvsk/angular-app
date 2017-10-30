@@ -4,7 +4,8 @@
       "id": 860,
       "first_name": "Superman",
       "last_name": "Yoda",
-      "full_name_property": "Some Full Name"
+      "full_name_property": "Some Full Name",
+      "company_name" : ""
     },
     {
       "id": 870,
@@ -16,7 +17,10 @@
     {
       "id": 590,
       "first_name": "Toto",
-      "full_name_property": "Some Full Name"
+      "last_name": "",
+      "full_name_property": "Some Full Name",
+      "company_name" : null,
+      "current_position" : ""
     }
   ]
 }

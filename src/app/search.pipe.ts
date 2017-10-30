@@ -6,23 +6,26 @@ import * as _ from 'lodash';
 })
 export class SearchPipe implements PipeTransform {
 
-  transform(array: any[], text?: string): any {
-    console.log(array, ' -->> ', text);
-    if (array.length == 0) {
+  transform(array: any[], text: string): any {
+    if (!array)  {
       return [];
+
+    } else if (_.isEmpty(text)){
+      return array;
+
     } else {
-
       return array.filter(function(item) {
-        let itemFound = {};
-        _.each(item, function(val) {
-            if(val.toString().toLowerCase().indexOf(text.toLowerCase().trim()) >= 0){
-              itemFound = item;
-              return false;
-            }
-        });
+          let itemFound = {};
 
-        return !_.isEmpty(itemFound) ? true : false;
-      });
+          _.each(item, function(val) {
+              if (val != null && val != undefined && val.toString().toLowerCase().indexOf(text.toLowerCase().trim()) >= 0) {
+                itemFound = item;
+                return false;
+              }
+          });
+
+          return !_.isEmpty(itemFound) ? true : false;
+        });
     }
 
   }

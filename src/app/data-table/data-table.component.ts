@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { TableDataService } from '../table-data.service';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { SearchPipe } from '../search.pipe';
 
 import * as _ from 'lodash';
@@ -20,11 +19,11 @@ export class DataTableComponent implements OnInit {
   totalNumberOfRows: number = 0;
   rowInEditMode: number = -1;
   searchedText: string = '';
+  options: string[] = ["Frontend Developer", "Backend Developer", "Full Stack Developer"];
 
-  constructor(private _dataProvider : TableDataService) {}
+  constructor(private _dataProvider? : TableDataService, private zone?: NgZone) {}
 
   ngOnInit() {
-
     if (localStorage.getItem('data') == undefined) {
       this._dataProvider.getData()
       .subscribe(result => {
@@ -37,18 +36,21 @@ export class DataTableComponent implements OnInit {
       this._mapColumnTitles();
     }
 
+    this.rowsData = _.orderBy(this.rowsData, ['id'], ['desc']);
+
   }
 
-  catchEventType = ($event) => {
+  catchEventType = ($event, rowsData : any[]) => {
       let functionName = $event.toLowerCase() + 'Row';
-
-      this[functionName]();
+      this[functionName](rowsData);
   };
 
   addRow = () => {
-    let newPerson = {
-      'id'       : -1
-    };
+    if (!_.isEmpty(this.searchedText)) {
+      return;
+    }
+
+    let newPerson = {'id': -1};
 
     _.each(this.columnTitles, function(key_title) {
       let reformatProp = key_title.replace(/ /g, '_').toLowerCase();
@@ -84,26 +86,18 @@ export class DataTableComponent implements OnInit {
   };
 
   deleteRow = () => {
-    let self = this;
-
-    _.each(this.rowsData, function(row){
-      if (row['selected'] == true) {
-        let index = self.rowsData.indexOf(row);
-        self.rowsData.splice(index, 1);
-        self._saveModifications();
-        return false;
-      }
-    });
+    this.rowsData = _.reject(this.rowsData, ['selected', true]);
+    this._saveModifications();
   }
 
-  toggleRowSelection = (selectdRow : any) => {
+  toggleRowSelection = (selectedRow : any) => {
     _.each(this.rowsData, function(row){
-      if (row.id !== selectdRow.id) {
+      if (row.id !== selectedRow.id) {
         row['selected'] = false;
       }
     });
 
-    selectdRow['selected'] = !selectdRow['selected'];
+    selectedRow['selected'] = !selectedRow['selected'];
   }
 
   sortRowBy = (prop: string) => {
@@ -116,6 +110,7 @@ export class DataTableComponent implements OnInit {
   };
 
   _saveModifications = () => {
+    this.rowsData = Object.assign([], this.rowsData);
     _.each(this.rowsData, function(row) {
       delete row['selected'];
     });
