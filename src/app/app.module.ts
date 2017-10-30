@@ -15,6 +15,11 @@ import { DataTableComponent } from './data-table/data-table.component';
 import { DataTable2Component } from './data-table-2/data-table-2.component';
 import { SmartTableComponent } from './smart-table/smart-table.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { ComboChartComponent } from './combo-chart/combo-chart.component';
+import { ChartsModule } from 'ng2-charts';
+import { HttpModule } from '@angular/http';
+import { JsonProviderService } from './json-provider.service';
+import { TestBlockComponent } from './test-block/test-block.component';
 
 @NgModule({
   declarations: [
@@ -29,14 +34,18 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     ParalaxFallComponent,
     DataTableComponent,
     DataTable2Component,
-    SmartTableComponent
+    SmartTableComponent,
+    ComboChartComponent,
+    TestBlockComponent
   ],
   imports: [
     BrowserModule,
     Ng2SmartTableModule,
-    DataTablesModule
+    DataTablesModule,
+    ChartsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [JsonProviderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

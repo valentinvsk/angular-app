@@ -2,18 +2,21 @@
   "data": [
     {
       "id": 860,
-      "firstName": "Superman",
-      "lastName": "Yoda"
+      "name": "Superman",
+      "email": "Julianne.OConner@kory.org",
+      "passed": "Yes"
     },
     {
       "id": 870,
-      "firstName": "Foo",
-      "lastName": "Whateveryournameis"
+      "name": "Superman",
+      "email": "Julianne.OConner@kory.org",
+      "passed": "Yes"
     },
     {
       "id": 590,
-      "firstName": "Toto",
-      "lastName": "Titi"
+      "name": "Superman",
+      "email": "Julianne.OConner@kory.org",
+      "passed": "Yes"
     }
   ]
 }
