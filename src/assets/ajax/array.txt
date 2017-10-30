@@ -20,7 +20,7 @@
       "last_name": "",
       "full_name_property": "Some Full Name",
       "company_name" : null,
-      "current_position" : ""
+      "current_position" : "Frontend Developer"
     }
   ]
 }

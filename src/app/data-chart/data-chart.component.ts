@@ -39,7 +39,6 @@ export class DataChartComponent implements OnInit {
     };
 
     this.data = this._extractData();
-    let self = this;
   }
 
   private _extactTotalNumberOfCurrentPosition = (fieldTitle: string) => this.chartData.reduce(function(startValue, item) {

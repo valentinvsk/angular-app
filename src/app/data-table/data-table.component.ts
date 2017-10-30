@@ -20,6 +20,7 @@ export class DataTableComponent implements OnInit {
   rowInEditMode: number = -1;
   searchedText: string = '';
   options: string[] = ["Frontend Developer", "Backend Developer", "Full Stack Developer"];
+  inputVal: boolean = false;
 
   constructor(private _dataProvider? : TableDataService, private zone?: NgZone) {}
 
@@ -37,8 +38,9 @@ export class DataTableComponent implements OnInit {
     }
 
     this.rowsData = _.orderBy(this.rowsData, ['id'], ['desc']);
-
   }
+
+  toggleCheckBox = (val: boolean) => {val = !val;};
 
   catchEventType = ($event, rowsData : any[]) => {
       let functionName = $event.toLowerCase() + 'Row';
@@ -58,6 +60,7 @@ export class DataTableComponent implements OnInit {
     });
 
     _.each(this.rowsData, function(person) {
+      person['selected'] = false;
       if (newPerson.id < person.id) {
         newPerson.id = person.id;
       }
