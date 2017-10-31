@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <div class="container pt-4 pb-4">
-  <ng2-smart-table class="table-striped table-hover" [settings]="settings" [source]="data" ></ng2-smart-table>
-</div>
+  <ng2-smart-table class="table-striped table-hover" [settings]="settings" [(source)]="data" (deleteConfirm)="onDeleteConfirm($event)"
+   (create)="whenCreate($event)"></ng2-smart-table>
 
-<div style="display: block">
-  <canvas baseChart
-    [data]="doughnutChartData"
-    [labels]="doughnutChartLabels"
-    [chartType]="doughnutChartType"
-    (chartHover)="chartHovered($event)"
-    (chartClick)="chartClicked($event)">
-  </canvas>
-</div>
+
+  <div style="display: block">
+    <canvas baseChart
+      [data]="doughnutChartData"
+      [labels]="doughnutChartLabels"
+      [chartType]="doughnutChartType"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)"
+      >
+    </canvas>
+  </div>
+  </div>

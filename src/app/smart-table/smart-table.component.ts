@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 // import { JsonProviderService } from '../json-provider.service';
-
 
 @Component({
   selector: 'app-smart-table',
@@ -9,12 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SmartTableComponent implements OnInit {
 
-  doughnutChartLabels:string[] = ['Passed Yes', 'Passed No' ];
-  // doughnutChartData: any[] = [];
+  doughnutChartLabels:string[] = ['Passed Yes', 'Passed No'];
   doughnutChartData:number[] = [];
   doughnutChartType: string = 'pie';
 
-  data = [
+  @Input() data = [
       {
         id: 4,
         name: 'Patricia Lebsack',
@@ -72,6 +70,20 @@ export class SmartTableComponent implements OnInit {
     ];
 
     settings = {
+      delete: {
+      deleteButtonContent: 'del',
+      confirmDelete: true
+      },
+      actions: {
+        columnTitle: 'Actions',
+        add: true,
+        edit: true,
+        delete: true,
+        position: 'right',
+        },
+        edit: {
+        editButtonContent: 'edit'
+        },
       columns: {
         id: {
           title: 'ID',
@@ -117,22 +129,36 @@ export class SmartTableComponent implements OnInit {
       },
     };
 
+    onDeleteConfirm(event) {
+        if (window.confirm('Are you sure you want to delete?')) {
+          this.data = event.source.data;
+          console.log(this.data);
+          this._extractNumberOfProps('passed');
+          event.confirm.resolve();
+        } else {
+          event.confirm.reject();
+        }
+      }
+
   private _extractNumberOfProps = (propName: string) => {
-    let totalNumberOfYesProps = this.data.reduce((startValue, item) => {
+    console.log(this.data);
+    const totalNumberOfYesProps = this.data.reduce((startValue, item) => {
+      if (!item || !item[propName]) {
+        return startValue;
+      }
+
       if (item[propName] === 'Yes') {
         return startValue + 1;
-      } else {
+      } else if (item[propName] === 'No'){
         return startValue;
       }
     }, 0);
 
-    let totalNumberOfNoProps = this.data.length - totalNumberOfYesProps;
-
-    this.doughnutChartData.push(totalNumberOfYesProps);
-    this.doughnutChartData.push(totalNumberOfNoProps);
+    const totalNumberOfNoProps = this.data.length - totalNumberOfYesProps;
+    this.doughnutChartData = Object.assign([], [totalNumberOfYesProps, totalNumberOfNoProps]);
   }
 
-  chartClicked(e:any):void {
+  chartClicked(e: any): void {
     console.log(e);
   }
   chartHovered(e:any):void {
@@ -142,11 +168,31 @@ export class SmartTableComponent implements OnInit {
 
 
   // constructor(private _jsonProvider?: JsonProviderService) { }
+  // ngOnChanges(changes : any[]) {
+  //   console.log(changes);
+  // }
 
+  // onDelete(event) {
+  // console.log('on delete');
+  // // delete data from server
+  // this.delete(event.data).then(result => {
+  // if (result === true) {
+  // // if data successfully deleted from server, remove data from local table too
+  // this.source.remove(event.data);
+  // }
+  // }).catch(err => console.log(err));
+  // }
+
+  whenDelete(event) {
+    this.data.splice(this.data.indexOf(event.data), 1);
+    console.log(this.data);
+  }
 
   ngOnInit() {
     // this._jsonProvider.getDataForChart().subscribe(result => {console.log(result); this.doughnutChartData = result.data});
     this._extractNumberOfProps('passed');
+    let self = this;
+    setInterval(() => {this._extractNumberOfProps('passed'); }, 2000);
   }
 
 }
